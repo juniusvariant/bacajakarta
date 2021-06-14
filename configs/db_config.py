@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from .app_config import Settings
+from configs import app_config
 
 """ SQLALCHEMY_DATABASE_URL =  'postgresql://juniusvariant@127.0.0.1:5432/bacajakarta_db'
 
@@ -18,8 +18,9 @@ def get_db():
         yield db
     finally:
         db.close() """
+conf = app_config.Settings()
 
-app_mode = Settings.APP_MODE
+app_mode = conf.APP_MODE
 
 if app_mode == 'Development':
     SQLALCHEMY_DATABASE_URL =  'postgresql+asyncpg://juniusvariant@127.0.0.1:5432/bacajakarta_db'
