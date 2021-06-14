@@ -11,11 +11,11 @@ conf = app_config.Settings()
 participant.Base.metadata.create_all(bind=engine) """
 
 tags_metadata = conf.METADATA
-app_mode = conf.APP_MODE
+inet_mode = conf.INET_MODE
 
-if app_mode == 'Development':
+if inet_mode == 'Offline':
     app = FastAPIOffline(openapi_tags=tags_metadata)
-if app_mode == 'Production':
+if inet_mode == 'Online':
     app = FastAPI(openapi_tags=tags_metadata)
 
 app.include_router(router_authentication.router, tags=['Auth End-Point'], prefix = '/auth')

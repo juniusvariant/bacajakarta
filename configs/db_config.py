@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from .app_config import Settings
 
 """ SQLALCHEMY_DATABASE_URL =  'postgresql://juniusvariant@127.0.0.1:5432/bacajakarta_db'
 
@@ -18,7 +19,12 @@ def get_db():
     finally:
         db.close() """
 
-SQLALCHEMY_DATABASE_URL =  'postgresql+asyncpg://juniusvariant@127.0.0.1:5432/bacajakarta_db'
+app_mode = Settings.APP_MODE
+
+if app_mode == 'Development':
+    SQLALCHEMY_DATABASE_URL =  'postgresql+asyncpg://juniusvariant@127.0.0.1:5432/bacajakarta_db'
+if app_mode == 'Production:':
+    SQLALCHEMY_DATABASE_URL =  'postgres+asyncpg://usthyfbohhvykd:2ff06dd828917f5f8f0fef027d11d4337bef1815a91a84b176a0f86ae44b6377@ec2-35-171-250-21.compute-1.amazonaws.com:5432/depk1bbdajorbf'
 
 engine =  create_async_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 
