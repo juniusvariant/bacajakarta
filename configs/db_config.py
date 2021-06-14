@@ -22,6 +22,8 @@ conf = app_config.Settings()
 
 app_mode = conf.APP_MODE
 
+SQLALCHEMY_DATABASE_URL = ''
+
 if app_mode == 'Development':
     SQLALCHEMY_DATABASE_URL =  'postgresql+asyncpg://juniusvariant@127.0.0.1:5432/bacajakarta_db'
 if app_mode == 'Production:':
