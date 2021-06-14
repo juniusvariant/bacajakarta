@@ -9,17 +9,16 @@ class BaseAbout(BaseModel):
     class Config():
         orm_mode = True
 
-as_form
+@as_form
 class InsertAbout(BaseAbout):
     description: Optional[str]
     about_type: Optional[str]
     class Config():
         orm_mode = True
 
-as_form
-class UpdateAbout(BaseAbout):
+@as_form
+class UpdateAbout(BaseModel):
     description: Optional[str]
-    about_type: Optional[str]
     updated_by: str
     class Config():
         orm_mode = True

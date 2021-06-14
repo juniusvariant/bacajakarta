@@ -17,7 +17,7 @@ class aboutDAL():
         await self.db_session.flush()
         return new_about
 
-    async def update_about(self, description: Optional[str], about_type: str, updated_by: str):
+    async def update_about(self, about_type: str, description: Optional[str], updated_by: str):
         datenow = datetime.datetime.now()
         q = update(About).where(About.about_type == about_type)
         if description:

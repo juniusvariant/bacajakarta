@@ -13,14 +13,14 @@ class BaseBooklet(BaseModel):
     class Config():
         orm_mode = True
 
-as_form
+@as_form
 class InsertBooklet(BaseBooklet):
     icon = Optional[str]
     banner = Optional[str]
     class Config():
         orm_mode = True
 
-as_form
+@as_form
 class UpdateBooklet(BaseBooklet):
     icon = Optional[str]
     banner = Optional[str]

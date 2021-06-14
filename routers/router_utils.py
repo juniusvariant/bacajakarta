@@ -33,7 +33,7 @@ async def get_all_abouts(about_dal: aboutDAL = Depends(get_about_dal), current_u
         
 @router.put("/update/{about_type}", status_code=status.HTTP_202_ACCEPTED, response_model=sch_about.UpdatedAbout)
 async def update_about_data(about_type, about_input: sch_about.UpdateAbout = Depends(sch_about.UpdateAbout.as_form), 
-about_dal: aboutDAL = Depends(get_about_dal), current_user: sch_account.UpdateAccount = Depends(oauth2.get_current_user)):
+about_dal: aboutDAL = Depends(get_about_dal), current_user: sch_account.BaseAccount = Depends(oauth2.get_current_user)):
     async with SessionLocal() as session:
         async with session.begin():
             about_dal = aboutDAL(session)

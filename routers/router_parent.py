@@ -62,7 +62,7 @@ parent_dal: parentDAL = Depends(get_parent_dal), current_user: sch_account.BaseA
 
 
 @router.put("/updatephoto/{parent_id}", status_code=status.HTTP_202_ACCEPTED, response_model=sch_parent.UpdatedParent)
-async def update_parent_profile_image(parent_id: str, updated_by: str = Form(...), parent_profile: UploadFile = File(...), 
+async def update_parent_profile_image(parent_id, updated_by: str = Form(...), parent_profile: UploadFile = File(...), 
 parent_dal: parentDAL = Depends(get_parent_dal), current_user: sch_account.BaseAccount = Depends(oauth2.get_current_user)):
     async with SessionLocal() as session:
         async with session.begin():
