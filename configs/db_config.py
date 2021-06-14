@@ -25,7 +25,7 @@ app_mode = conf.APP_MODE
 if app_mode == 'Development':
     SQLALCHEMY_DATABASE_URL =  "postgresql+asyncpg://juniusvariant@127.0.0.1:5432/bacajakarta_db"
 if app_mode == 'Production':
-    SQLALCHEMY_DATABASE_URL =  "postgresql+asyncpg://usthyfbohhvykd:2ff06dd828917f5f8f0fef027d11d4337bef1815a91a84b176a0f86ae44b6377@ec2-35-171-250-21.compute-1.amazonaws.com:5432/depk1bbdajorbf"
+    SQLALCHEMY_DATABASE_URL =  "postgresql+asyncpg://ajztaysnlmequx:5a74575cbe487d3b158b32d545e0197d701b189a6bdc67ddd92d84244ca03aea@ec2-35-171-250-21.compute-1.amazonaws.com:5432/d26hsji8et19k2"
 
 engine =  create_async_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 
