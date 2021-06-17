@@ -19,6 +19,7 @@ certifi==2021.5.30
 cffi==1.14.5
 chardet==4.0.0
 click==7.1.2
+cloudinary==1.25.0
 cryptography==3.4.7
 databases==0.4.3
 DateTime==4.3

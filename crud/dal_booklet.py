@@ -37,6 +37,10 @@ class bookletDAL():
         q.execution_options(synchronize_session="fetch")
         await self.db_session.execute(q)
 
+    async def get_booklet_data(self, booklet_id: str):
+        q = await self.db_session.execute(select(Booklet).where(Booklet.id == booklet_id, Booklet.is_active == True))
+        return q.scalar()
+
     async def get_all_booklets(self) -> List[Booklet]:
         q = await self.db_session.execute(select(Booklet).order_by(Booklet.period))
         return q.scalars().all()

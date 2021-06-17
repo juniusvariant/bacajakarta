@@ -3,21 +3,14 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from configs import app_config
+import cloudinary
 
-""" SQLALCHEMY_DATABASE_URL =  'postgresql://juniusvariant@127.0.0.1:5432/bacajakarta_db'
+cloudinary.config(
+  cloud_name = 'hmpytvwgr',  
+  api_key = '229795342785883',  
+  api_secret = 'W3i1u18j5I3ibIa9mkWqvEQLhKU'  
+)
 
-engine =  create_async_engine(SQLALCHEMY_DATABASE_URL, pool_pre_ping=True)
-
-SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False, expire_on_commit=False, class_=AsyncSession)
-
-Base = declarative_base()
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close() """
 conf = app_config.Settings()
 
 app_mode = conf.APP_MODE

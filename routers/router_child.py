@@ -51,7 +51,7 @@ child_dal: childDAL = Depends(get_child_dal), current_user: sch_account.BaseAcco
             child_dal = childDAL(session)
 
             await child_dal.update_child(
-                child_id, child_input.account_id, 
+                child_id, child_input.parent_id, child_input.account_id, 
                 child_input.fullname, child_input.gender, 
                 child_input.religion, child_input.place_of_birth, child_input.date_of_birth, child_input.address, 
                 child_input.village, child_input.district, child_input.city, child_input.province, 

@@ -21,14 +21,13 @@ class childDAL():
         await self.db_session.flush()
         return new_parent
 
-    async def update_child(self, child_id : str, account_id : Optional[str], parent_id: str, img_profile : Optional[str], 
+    async def update_child(self, child_id : str, parent_id: Optional[str], account_id : Optional[str], img_profile : Optional[str], 
     fullname : Optional[str], gender : Optional[str], religion : Optional[str], place_of_birth : Optional[str], 
     date_of_birth : Optional[datetime.date], address : Optional[str], village : Optional[str], district : Optional[str], 
     city : Optional[str], province : Optional[str], relation : Optional[str], updated_by: str):
         datenow = datetime.datetime.now()
         q = update(Child).where(Child.id == child_id)
-        if parent_id:
-            q = q.values(parent_id=parent_id)
+        q = q.values(parent_id=parent_id)
         if account_id:
             q = q.values(account_id=account_id)
         if img_profile:

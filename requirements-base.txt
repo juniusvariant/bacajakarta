@@ -21,3 +21,4 @@ sqlalchemy-utils
 alembic
 async-sqlalchemy
 fastapi-offline
+cloudinary

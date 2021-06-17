@@ -10,13 +10,21 @@ conf = app_config.Settings()
 """ user.Base.metadata.create_all(bind=engine)
 participant.Base.metadata.create_all(bind=engine) """
 
+app_title =  conf.TITLE
+app_desc = conf.DESCRIPTION
+app_ver = conf.VERSION
 tags_metadata = conf.METADATA
 inet_mode = conf.INET_MODE
 
 if inet_mode == 'Offline':
     app = FastAPIOffline(openapi_tags=tags_metadata)
 if inet_mode == 'Online':
-    app = FastAPI(openapi_tags=tags_metadata)
+    app = FastAPI(
+        title = app_title,
+        description = app_desc,
+        version = app_ver,
+        openapi_tags=tags_metadata
+        )
 
 app.include_router(router_authentication.router, tags=['Auth End-Point'], prefix = '/auth')
 app.include_router(router_utils.router, tags=['Utils End-Point'], prefix = '/utils')

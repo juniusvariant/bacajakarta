@@ -34,7 +34,7 @@ parent_profile: Optional[UploadFile] = File(None), current_user: sch_account.Bas
 
 
 @router.get("/find/{parent_id}", status_code=status.HTTP_200_OK, response_model=sch_parent.ShowParent)
-async def find_parent_id(parent_id: str, parent_dal: parentDAL = Depends(get_parent_dal), current_user: sch_account.BaseAccount = Depends(oauth2.get_current_user)):
+async def find_parent_id(parent_id, parent_dal: parentDAL = Depends(get_parent_dal), current_user: sch_account.BaseAccount = Depends(oauth2.get_current_user)):
     return await parent_dal.get_parent_data(parent_id)
 
 
